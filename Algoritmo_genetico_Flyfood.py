@@ -118,12 +118,6 @@ def cruzamento_todos_pais(lista_pais: List, taxa_cruzamento: float) -> List:
     lista_filho[i], lista_filho[i + 1]  = cruzamento_dois_pais(lista_pais[i], lista_pais[i + 1], taxa_cruzamento)
   return lista_filho
 
-# def elitismo(lista_populacao, lista_apdtidao, quantidade, sel_func):
-#     nova_lista_populacao = []
-#     ordFit = sel_func(lista_apdtidao)
-#     for i in range(quantidade):
-#         nova_lista_populacao.append(lista_populacao[ordFit[i]])
-#     return nova_lista_populacao
 
 def evolucao(lista_populacao: List, numero_individuo: int,numero_geracoes: int,
              taxa_cruzamento: float, taxa_mutacao: float, sel_func: Callable) -> Tuple[List[List[list]], List[float]]:
@@ -148,12 +142,11 @@ def evolucao(lista_populacao: List, numero_individuo: int,numero_geracoes: int,
 lista = []
 a = 'berlin52.tsp'
 b ='d198.tsp'
-c = 'burma14.tsp'
-d = 'bayg29.tsp'
-with open (d) as obj_file:
+c = 'bayg29.tsp'
+with open (c) as obj_file:
   text =obj_file.readlines()
   
-for i, el in enumerate(text[37:-1]):
+for i, el in enumerate(text[6:-1]):
   line = []
   for index, x in enumerate(el.replace('\n', ' ').split(' ')):
     if (x != ''):
