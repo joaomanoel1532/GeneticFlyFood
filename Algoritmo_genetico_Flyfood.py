@@ -118,6 +118,15 @@ def cruzamento_todos_pais(lista_pais: List, taxa_cruzamento: float) -> List:
     lista_filho[i], lista_filho[i + 1]  = cruzamento_dois_pais(lista_pais[i], lista_pais[i + 1], taxa_cruzamento)
   return lista_filho
 
+# def elitismo(lista_populacao: List[List[list]]) -> List[List[list]]:
+#   distances_list = calcular_todas_distancias(lista_populacao)
+#   fitness_list = aptidao(distances_list)
+#   new_pop = [None] * int(len(fitness_list)/2)
+#   for i, el in enumerate(new_pop):
+#     index = roleta(fitness_list)
+#     new_pop[i] = lista_populacao.pop(index)
+#     fitness_list.pop(index)
+#   return new_pop
 
 def evolucao(lista_populacao: List, numero_individuo: int,numero_geracoes: int,
              taxa_cruzamento: float, taxa_mutacao: float, sel_func: Callable) -> Tuple[List[List[list]], List[float]]:
@@ -152,6 +161,7 @@ for i, el in enumerate(text[6:-1]):
     if (x != ''):
       line.append(float(x))
   lista.append((line[1], line[2], str(int(line[0]))))
+
 ini = time.time()
 evolucao(
   lista_populacao = lista,
